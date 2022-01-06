@@ -1,0 +1,10 @@
+Terms of art
+
+1) method - a block of code that runs when called
+2) class - object constructor or blueprint to create an object.
+3) function - same as a method but in java we use method to describe a block of code
+4) field - holds the data or attributes of an object
+5) variable - data container that saves to memory during a java program execution
+
+
+A class holds methods and field variables. The class is an object constructor.
