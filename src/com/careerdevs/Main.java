@@ -21,6 +21,8 @@ public class Main {
        DataTypes.a2_012_var();
        DataTypes.a2_013_casting();
        DataTypes.a2_014_theMathClass();
+       DataTypes.a2_015_formatting_numbers();
+       DataTypes.a2_016_Reading();
     }
 
 }

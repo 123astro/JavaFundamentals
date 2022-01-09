@@ -2,9 +2,11 @@ package com.careerdevs.intro;
 
 import java.awt.*;
 import java.lang.reflect.Array;
+import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Scanner;
 
 public class DataTypes {
     public static void main(String[] args) {
@@ -132,7 +134,7 @@ public class DataTypes {
         System.out.println(Arrays.toString(numbers)); //the other index that are not initialized are set to 0 be default.
 
         // the new way to do the same as above
-        int[] numbers2 ={2,3,5,1,4};  // arrays have a fixed length - use a collection class if you need to remove
+        int[] numbers2 = {2, 3, 5, 1, 4};  // arrays have a fixed length - use a collection class if you need to remove
         // and change the size
         System.out.println(numbers2.length);
         System.out.println(Arrays.toString(numbers2));
@@ -149,7 +151,7 @@ public class DataTypes {
         numbers[0][0] = 1;
         System.out.println(Arrays.deepToString(numbers)); // use the deepToString to print multi dim
 
-        int[][] numbers2 = {{1,2,3} , {4,5,6}};
+        int[][] numbers2 = {{1, 2, 3}, {4, 5, 6}};
         System.out.println(Arrays.deepToString(numbers2));
 
     }
@@ -220,12 +222,12 @@ public class DataTypes {
         System.out.println(yyy);
 
         String xxxx = "1";
-        int yyyy =  Integer.parseInt(xxxx) + 2;
+        int yyyy = Integer.parseInt(xxxx) + 2;
         System.out.println(yyyy);
 
 
         String xxxxx = "1.1";
-        double yyyyy  =  Double.parseDouble(xxxxx) + 2;
+        double yyyyy = Double.parseDouble(xxxxx) + 2;
         System.out.println(yyyyy);
     }
 
@@ -241,13 +243,13 @@ public class DataTypes {
         int result2 = (int) Math.floor(1.1F); // floor the largest int that is smaller or equal to this number.
         System.out.println(result2);
 
-        int result3 = Math.max(1,2); // largest number of the two
+        int result3 = Math.max(1, 2); // largest number of the two
         System.out.println(result3);
 
         double result4 = Math.random(); //
         System.out.println(result4);
 
-        double result5 = Math.random() * 100 ; // multiply by 100 to get random numbers
+        double result5 = Math.random() * 100; // multiply by 100 to get random numbers
         System.out.println(result5);
 
 
@@ -263,9 +265,42 @@ public class DataTypes {
 
     }
 
+    //A-02-15-Formatting Numbers
+    //
+    public static void a2_015_formatting_numbers() {
+        // $1,234,567
+        //10%
+        NumberFormat currency = NumberFormat.getCurrencyInstance();  // factory method
+        String result = currency.format(1234567.891);
+        System.out.println(result);
+
+        NumberFormat percent = NumberFormat.getPercentInstance();  // factory methods
+        String result1 = percent.format(0.1);
+        System.out.println(result1);
+
+        // method chaining
+        String result2 = NumberFormat.getPercentInstance().format(0.1);
+        System.out.println(result2);
+
+    }
+
+    //A-02-16-Reading  scanners
+    public static void a2_016_Reading() {
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Age: ");
+//        byte age = scanner.nextByte();
+//        System.out.println("You are " + age);
 
 
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Name: ");
+        String name = scanner.nextLine().trim();  // when inputting your name it is called a token- you need nextLine
+        // method
+        // to get the entire line bc in the case of a first and last name that would be two tokens. need to whole line
+// not just the next line ... one token.
+        System.out.println("You are " + name);
 
+    }
 
 
 }
