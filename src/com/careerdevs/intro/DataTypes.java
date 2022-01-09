@@ -154,6 +154,64 @@ public class DataTypes {
 
     }
 
+    //Constants
+    //A-02-10
+
+    public static void a2_010_var() {
+        final float PI = 3.14f; // final so pi can't change or be set to another value
+        //PI = 2.3F; // ERROR bc you can't change a final.
+    }
+
+
+    //Arithmetic Expressions
+    // A-02-11;
+    public static void a2_011_var() {
+        int result = 10 + 3;
+        int result1 = 10 - 3; // 10 and 3 are call operands  and - is the operator
+        int result2 = 10 / 3; // will only give you a whole number answer
+        double result3 = (double) 10 / (double) 3; // this is an expression that produces a value.
+        int x = 1;
+        ++x;  //increment operator
+        x++;
+        System.out.println(result);
+        System.out.println(result1);
+        System.out.println(result2);
+        System.out.println(result3);
+        System.out.println(x);
+
+        int xx = 1;
+        int y = xx++;  // xx assigns y a value then xx is incremented
+        System.out.println(xx);
+        System.out.println(y);
+
+        int xxx = 1;
+        int yy = ++xxx;  // xxx is incremented then assigned to yy
+        System.out.println("xxx is: " + xxx);
+        System.out.println("yy is: " + yy);
+
+        int xxxx = 1;
+        xxxx += 2; //augmented (or compound) assignment operator
+        System.out.println(xxxx);
+    }
+
+    //A-02-12-Order of Operations
+    public static void a2_012_var() {
+        int x = 10 + 3 * 2; // 3*2 has the highest priority  result is 16
+        int y = (10 + 3) * 2;
+        System.out.println(x);
+        System.out.println(y);
+
+    }
+
+    //A-02-13-Casting and type conversion
+    //
+    public static void a2_013_casting() {
+
+
+    }
+
+
+
 
 
 
