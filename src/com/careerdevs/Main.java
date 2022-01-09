@@ -14,6 +14,9 @@ public class Main {
        DataTypes.a2_04_var();
        DataTypes.a2_05_var();
        DataTypes.a2_06_var();
+       DataTypes.a2_07_var();
+       DataTypes.a2_08_var();
+       DataTypes.a2_09_var();
     }
 
 }

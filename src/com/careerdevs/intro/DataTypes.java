@@ -1,6 +1,8 @@
 package com.careerdevs.intro;
 
 import java.awt.*;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
 
@@ -69,7 +71,7 @@ public class DataTypes {
         System.out.println(y);
         System.out.println(x);
 
-        Point point1 = new Point(1,1);  // allocates the memory space and point1 holds the address of the memory space
+        Point point1 = new Point(1, 1);  // allocates the memory space and point1 holds the address of the memory space
         Point point2 = point1;   // it holds the point object address in memory - not the actual object - hence
         // reference type // point1 and point2 are referencing the same point object in memory. They are referencing
         // the same object - they are not independent of each other. If you change one - they both change.
@@ -99,5 +101,60 @@ public class DataTypes {
         System.out.println(message3.trim()); // trim white spaces at the beginning and end.
 
     }
+    //Escape Sequences
+    //A-02-07
+
+    public static void a2_07_var() {
+
+        String message = "Hello \"Mosh\"";  //double quotes you need to be aware of
+        System.out.println(message);
+        // C:\Windows\..
+        String message1 = "c: \\Windows\\.."; // two backslashes in code but only one prints
+        System.out.println(message1);
+
+        String message2 = "c: \nWindows\\.."; // \n is a new line
+        System.out.println(message2);
+
+        String message3 = "c: \tWindows\\.."; // \t is a tab
+        System.out.println(message3);
+
+    }
+
+    //Arrays  => stores a list of items, list of people, a list of messages
+    //Arrays have a fixed length
+    //A-02-08
+    public static void a2_08_var() {
+        int[] numbers = new int[5]; // bracket notation
+        numbers[0] = 1;
+        numbers[1] = 2;
+        //numbers[10] = 3;  // throws an exception
+        System.out.println(numbers); // prints the address of object in memory
+        System.out.println(Arrays.toString(numbers)); //the other index that are not initialized are set to 0 be default.
+
+        // the new way to do the same as above
+        int[] numbers2 ={2,3,5,1,4};  // arrays have a fixed length - use a collection class if you need to remove
+        // and change the size
+        System.out.println(numbers2.length);
+        System.out.println(Arrays.toString(numbers2));
+        Arrays.sort(numbers2);
+        System.out.println(Arrays.toString(numbers2));
+
+    }
+    //Multi-dimensional Arrays
+    //A-02-09
+
+    public static void a2_09_var() {
+        // int[] numbers = new int[5]; single dimensional array
+        int[][] numbers = new int[2][3];
+        numbers[0][0] = 1;
+        System.out.println(Arrays.deepToString(numbers)); // use the deepToString to print multi dim
+
+        int[][] numbers2 = {{1,2,3} , {4,5,6}};
+        System.out.println(Arrays.deepToString(numbers2));
+
+    }
+
+
+
 
 }
