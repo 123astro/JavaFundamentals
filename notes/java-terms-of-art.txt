@@ -8,3 +8,8 @@ Terms of art
 
 
 A class holds methods and field variables. The class is an object constructor.
+
+A compiled language (complied into machine language) is a programming language whose implementations are typically
+compilers and not interpreters.
+An interpreted language is a programming language whose implementations execute instructions directly and freely,
+without previously compiling a program into machine-language instructions.
