@@ -204,8 +204,61 @@ public class DataTypes {
     }
 
     //A-02-13-Casting and type conversion
-    //
+    // byte > short > int > long > float > double
+    // implicit casting only happens when data will not be lost
     public static void a2_013_casting() {
+        short x = 1;
+        int y = x + 2;  // java will automatic implicit casting x and be converted to the bigger int.
+        System.out.println("casting example 1: " + y);
+
+        double xx = 1.1;
+        double yy = xx + 2; // java casts the 2 int to a double 2.0.
+        System.out.println(yy);
+
+        double xxx = 1.1;
+        int yyy = (int) xxx + 2; // explicit casting = convert xxx from double to int
+        System.out.println(yyy);
+
+        String xxxx = "1";
+        int yyyy =  Integer.parseInt(xxxx) + 2;
+        System.out.println(yyyy);
+
+
+        String xxxxx = "1.1";
+        double yyyyy  =  Double.parseDouble(xxxxx) + 2;
+        System.out.println(yyyyy);
+    }
+
+
+    //A-02-14-Math Class
+    public static void a2_014_theMathClass() {
+        int result = Math.round(1.1F);
+        System.out.println(result);
+
+        int result1 = (int) Math.ceil(1.1F);
+        System.out.println(result1);
+
+        int result2 = (int) Math.floor(1.1F); // floor the largest int that is smaller or equal to this number.
+        System.out.println(result2);
+
+        int result3 = Math.max(1,2); // largest number of the two
+        System.out.println(result3);
+
+        double result4 = Math.random(); //
+        System.out.println(result4);
+
+        double result5 = Math.random() * 100 ; // multiply by 100 to get random numbers
+        System.out.println(result5);
+
+
+        double result6 = Math.round(Math.random() * 100);  // round
+        System.out.println(result6);
+
+        int result7 = (int) Math.round(Math.random() * 100); // round without a decimal point
+        System.out.println(result7);
+
+        int result9 = (int) (Math.random() * 100); // another way
+        System.out.println(result9);
 
 
     }

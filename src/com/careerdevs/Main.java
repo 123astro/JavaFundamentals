@@ -20,6 +20,7 @@ public class Main {
        DataTypes.a2_011_var();
        DataTypes.a2_012_var();
        DataTypes.a2_013_casting();
+       DataTypes.a2_014_theMathClass();
     }
 
 }
