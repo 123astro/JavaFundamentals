@@ -22,8 +22,8 @@ public class ControlFlow {
     }
 
     public static void A_03_03_logicalOperators() {
-      int temperature = 12;
-      boolean isWarm = (temperature > 20 && temperature < 30);
+        int temperature = 12;
+        boolean isWarm = (temperature > 20 && temperature < 30);
         System.out.println("logical op: " + isWarm);
 
         boolean hasHighIncome = true;
@@ -34,7 +34,21 @@ public class ControlFlow {
         boolean hasHighIncome1 = false;  // needs high income or good credit
         boolean hasGoodCredit1 = true;
         boolean hasCriminalRecord = false; // needs not to be a criminal
-        boolean isEligible1 =(hasHighIncome1 || hasGoodCredit1) && !hasCriminalRecord;
+        boolean isEligible1 = (hasHighIncome1 || hasGoodCredit1) && !hasCriminalRecord;
         System.out.println("Is eligible: " + isEligible1);
     }
+
+    public static void A_03_04_ifStatements() {
+        int temp = 32;
+        if (temp > 30) {  // parent followed by two children also look at formatting
+            System.out.println("Its a hot day");
+            System.out.println("Drink Water");
+        }
+        else if (temp > 20)
+            System.out.println("Beautiful Day");
+        else
+            System.out.println("Cold day");
+    }
+
+
 }

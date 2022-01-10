@@ -29,6 +29,7 @@ public class Main {
 
        ControlFlow.A_03_02_comparisonOperators();
        ControlFlow.A_03_03_logicalOperators();
+       ControlFlow.A_03_04_ifStatements();
     }
 
 }
