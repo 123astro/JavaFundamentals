@@ -1,7 +1,7 @@
 package com.careerdevs.intro;
 
+import javax.sound.midi.Soundbank;
 import java.awt.*;
-import java.lang.reflect.Array;
 import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -43,7 +43,7 @@ public class DataTypes {
 
     //primitive data types are below
 
-    public static void a2_03_var() {  // no need to instantiate with static method
+    public static void a2_03_primitiveTypes() {  // no need to instantiate with static method
         byte age = 30;
         int viewsCount = 123_456_789; // under score for comma
         long viewsCount2 = 3_123_456_789L; // Long
@@ -55,7 +55,7 @@ public class DataTypes {
     //reference types  example mail messages, date
     // there are eight primitive types and all the rest are reference types.
 
-    public static void a2_04_var() {  // no need to instantiate with static method
+    public static void a2_04_referenceTypes() {  // no need to instantiate with static method
         byte age = 30;
         Date now = new Date(); // packages create a namespace for our packages imports the data class into
         // this package
@@ -66,7 +66,7 @@ public class DataTypes {
 
     //PRIMITIVE (storing simple values) VS REFERENCE (storing complex objects)
 
-    public static void a2_05_var() {  // no need to instantiate with static method
+    public static void a2_05_primTypesVsRefTypes() {  // no need to instantiate with static method
         byte x = 1;  // x and y are completely independent of each other in this example
         byte y = x;
         x = 2;
@@ -84,7 +84,7 @@ public class DataTypes {
 
     //Strings a-02-06;
 
-    public static void a2_06_var() {
+    public static void a2_06_strings() {
         //String message = new String("Hello World"); // another way below.
         String message2 = "Hello World" + "!!";
         String message3 = "  Hello World" + "!!  "; // trim example
@@ -106,7 +106,7 @@ public class DataTypes {
     //Escape Sequences
     //A-02-07
 
-    public static void a2_07_var() {
+    public static void a2_07_escapeSeq() {
 
         String message = "Hello \"Mosh\"";  //double quotes you need to be aware of
         System.out.println(message);
@@ -125,7 +125,7 @@ public class DataTypes {
     //Arrays  => stores a list of items, list of people, a list of messages
     //Arrays have a fixed length
     //A-02-08
-    public static void a2_08_var() {
+    public static void a2_08_arrays() {
         int[] numbers = new int[5]; // bracket notation
         numbers[0] = 1;
         numbers[1] = 2;
@@ -145,7 +145,7 @@ public class DataTypes {
     //Multi-dimensional Arrays
     //A-02-09
 
-    public static void a2_09_var() {
+    public static void a2_09_multiDimArrays() {
         // int[] numbers = new int[5]; single dimensional array
         int[][] numbers = new int[2][3];
         numbers[0][0] = 1;
@@ -159,7 +159,7 @@ public class DataTypes {
     //Constants
     //A-02-10
 
-    public static void a2_010_var() {
+    public static void a2_010_constants() {
         final float PI = 3.14f; // final so pi can't change or be set to another value
         //PI = 2.3F; // ERROR bc you can't change a final.
     }
@@ -167,7 +167,7 @@ public class DataTypes {
 
     //Arithmetic Expressions
     // A-02-11;
-    public static void a2_011_var() {
+    public static void a2_011_arithmeticExp() {
         int result = 10 + 3;
         int result1 = 10 - 3; // 10 and 3 are call operands  and - is the operator
         int result2 = 10 / 3; // will only give you a whole number answer
@@ -197,7 +197,7 @@ public class DataTypes {
     }
 
     //A-02-12-Order of Operations
-    public static void a2_012_var() {
+    public static void a2_012_orderOfOperations() {
         int x = 10 + 3 * 2; // 3*2 has the highest priority  result is 16
         int y = (10 + 3) * 2;
         System.out.println(x);
@@ -285,22 +285,82 @@ public class DataTypes {
     }
 
     //A-02-16-Reading  scanners
-    public static void a2_016_Reading() {
+    public static void a2_016_reading() {
 //        Scanner scanner = new Scanner(System.in);
 //        System.out.print("Age: ");
 //        byte age = scanner.nextByte();
 //        System.out.println("You are " + age);
 
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Name: ");
-        String name = scanner.nextLine().trim();  // when inputting your name it is called a token- you need nextLine
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Name: ");
+//        String name = scanner.nextLine().trim();  // when inputting your name it is called a token- you need nextLine
         // method
         // to get the entire line bc in the case of a first and last name that would be two tokens. need to whole line
 // not just the next line ... one token.
-        System.out.println("You are " + name);
+//        System.out.println("You are " + name);
 
     }
 
+    // BUILD a mortgage calculator
 
+    // Principal 100_000
+    // Annual interest rate 3.92
+    // Period 30
+    // Mortgage $472.81 as currency   wikihow how to cal mortgage payments for the math part
+
+
+
+    public static void a2_07_project_mortgage_cal() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please input Principal: ");
+        String prin = input.nextLine().trim();
+        int principal = Integer.parseInt(prin);
+        System.out.println(principal);
+
+        System.out.print("Please input Annual Interest Rate: ");
+        String apr = input.nextLine().trim();
+        float annualInterestRate = Float.parseFloat(apr);
+        float monthlyInterestRate = (annualInterestRate / 100) / 12;
+        System.out.println(monthlyInterestRate);
+
+        System.out.print("Please input number of years: ");
+        String years = input.nextLine().trim();
+        short numberOfYears = Short.parseShort(years);
+        int months = numberOfYears * 12;
+        System.out.println(months);
+
+        // Math.pow was introduced  for the power of a number.
+        double monthlyPayment = principal *
+                ((monthlyInterestRate * (Math.pow(1 + monthlyInterestRate, months))) / ((Math.pow(1 + monthlyInterestRate, months) - 1)));
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        String result = currency.format(monthlyPayment);
+        System.out.println(result);
+    }
+
+    // A-02-18-Solution Mosh style.
+    public static void a2_018_mosh_cal_solution() {
+        final byte MONTHS_IN_YEAR = 12;
+        final byte PERCENT = 100;
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Principal: ");
+        int principal = scanner.nextInt();
+
+        System.out.print("Annual Interest Rate: ");
+        float annualInterest = scanner.nextFloat();
+        float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
+
+        System.out.print("Period in Years: ");
+        byte years = scanner.nextByte();
+        int numberOfPayments = years * MONTHS_IN_YEAR;
+
+        double monthlyPayment = principal *
+                ((monthlyInterest * (Math.pow(1 + monthlyInterest, numberOfPayments))) / ((Math.pow(1 + monthlyInterest
+                        , numberOfPayments) - 1)));
+
+        String mortgageFormatted = NumberFormat.getCurrencyInstance().format(monthlyPayment);
+        System.out.println("Mortgage: " + mortgageFormatted);
+    }
 }
