@@ -30,6 +30,11 @@ public class Main {
        ControlFlow.A_03_02_comparisonOperators();
        ControlFlow.A_03_03_logicalOperators();
        ControlFlow.A_03_04_ifStatements();
+       ControlFlow.A_03_05_simplifyingIfStatements();
+       ControlFlow.A_03_06_theTernaryOperator();
+       ControlFlow.A_03_07_switchStatements();
+       ControlFlow.A_03_08_exercise_FizzBuzz();
+       ControlFlow.A_03_09_forLoops();
     }
 
 }
