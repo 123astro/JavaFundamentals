@@ -1,5 +1,6 @@
 package com.careerdevs;
 
+import com.careerdevs.intro.ControlFlow;
 import com.careerdevs.intro.DataTypes;
 import com.careerdevs.intro.GettingStarted;
 
@@ -23,8 +24,11 @@ public class Main {
        DataTypes.a2_014_theMathClass();
        DataTypes.a2_015_formatting_numbers();
        DataTypes.a2_016_reading();
-       DataTypes.a2_07_project_mortgage_cal();
-       DataTypes.a2_018_mosh_cal_solution();
+       //DataTypes.a2_07_project_mortgage_cal();
+       //DataTypes.a2_018_mosh_cal_solution();
+
+       ControlFlow.A_03_02_comparisonOperators();
+       ControlFlow.A_03_03_logicalOperators();
     }
 
 }
