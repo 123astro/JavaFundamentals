@@ -203,10 +203,11 @@ public class ControlFlow {
 
     }
 
-    public static void A_03_14_mortgage_calculator_error_handling() {
+    public static void A_03_14_mortgage_calculator_error_handling_mosh() {
         final byte MONTHS_IN_YEAR = 12;
         final byte PERCENT = 100;
-        int principal;
+
+        int principal = 0;
         float monthlyInterest;
         float annualInterest;
         byte years;
@@ -215,7 +216,7 @@ public class ControlFlow {
 
         Scanner scanner = new Scanner(System.in);
 
-        while (true) {
+        while (true) { // the scope of principle changed and needed to be put into the field of the method.
             System.out.print("Principal ($1k - $1M): ");
             principal = scanner.nextInt();
             if (principal < 1000 || principal > 1_000_000) {
@@ -229,7 +230,7 @@ public class ControlFlow {
         while (true) {
             System.out.print("Annual Interest Rate: ");
             annualInterest = scanner.nextFloat();
-            if (annualInterest <= 0 || annualInterest > 30) {
+            if (annualInterest < 0 || annualInterest > 30) {
                 System.out.println("Enter a value greater than 0 and less than or equal to 30.");
                 continue;
             } else {
@@ -258,10 +259,63 @@ public class ControlFlow {
     }
 
     public static void A_03_15_mortgage_calculator_solution() {
+        final byte MONTHS_IN_YEAR = 12;
+        final byte PERCENT = 100;
 
-    }
+        int principal = 0; // rescope bc outside the block
+        float monthlyInterest;
+        float annualInterest;
+        byte years;
+        int numberOfPayments;
+
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) { // the scope of principle changed and needed to be put into the field of the method.
+            System.out.print("Principal ($1k - $1M): ");
+            principal = scanner.nextInt();
+            if (principal >= 1000 || principal <= 1_000_000) {
+                break;
+            }
+            System.out.println("Enter a number between 1,000 and 1,000,000");
+        }
+
+        while (true) {
+            System.out.print("Annual Interest Rate: ");
+            annualInterest = scanner.nextFloat();
+            if (annualInterest >= 1 || annualInterest <= 30) {
+                monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
+                break;
+            }
+            System.out.println("Enter a value greater than 0 and less than or equal to 30.");
+        }
+
+        while (true) {
+            System.out.print("Period in Years: ");
+            years = scanner.nextByte();
+            if (years >= 1 || years <= 30) {
+                numberOfPayments = years * MONTHS_IN_YEAR;
+                break;
+            }
+            System.out.println("Enter a value between 1 and less than or equal to 30.");
+        }
+
+        double monthlyPayment = principal *
+                ((monthlyInterest * (Math.pow(1 + monthlyInterest, numberOfPayments))) / ((Math.pow(1 + monthlyInterest
+                        , numberOfPayments) - 1)));
+        String mortgageFormatted = NumberFormat.getCurrencyInstance().format(monthlyPayment);
+        System.out.println("Mortgage: " + mortgageFormatted);
+
+}
 
     public static void A_03_16_summary() {
+        // control flow learned
+        // comparison operators = comparing primitive values ints, booleans etc
+        //logical operators = and or not !
+        // conditional statements = if and switch
+        // loops exe code repeatedly
+        // break and continue to break out or continue to the beginning of a loop.
+
+
 
     }
 
