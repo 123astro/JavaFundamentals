@@ -1,5 +1,7 @@
 package com.careerdevs.intro;
 
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class ControlFlow {
@@ -130,31 +132,129 @@ public class ControlFlow {
 
     public static void A_03_09_forLoops() {
         for (int i = 0; i < 5; i++) { // initializing i to 0 || then evaluates the i < 5 || i is incremented by 1
-            System.out.println("Hello World" + i );
+            System.out.println("Hello World" + i);
         }
         for (int i = 5; i > 0; i--) { // initializing i to 0 || then evaluates the i < 5 || i is incremented by 1
-            System.out.println("Hello World" + i );
+            System.out.println("Hello World" + i);
         }
     }
 
-    public static void A_03_10_whileLoops() {
+    public static void A_03_10_whileLoops() {  // while loops are used when you don't know how many times you want to
+        // repeat something. Remember, you can not use comparison operators when comparing reference types.
+        int i = 5;
+        while (i > 0) {
+            System.out.println("While Loop : Hello World" + i);
+            i--;
+        }
+
+        Scanner scanner1 = new Scanner(System.in);
+        String input = "";
+        while (!input.equals("quit")) {
+            System.out.println("Input (type quit to end - whileLoop): ");
+            input = scanner1.nextLine().toLowerCase(Locale.ROOT);
+            System.out.println(input);
+        }
 
     }
 
-    public static void A_03_11_doWhileLoops() {
-
+    public static void A_03_11_doWhileLoops() {// use only when you need at least one execution of the code block.
+        Scanner scanner2 = new Scanner(System.in);
+        String input = "";
+        do {
+            System.out.println("Input (type quit to end - doWhileLoop): ");
+            input = scanner2.next().toLowerCase(Locale.ROOT);
+            System.out.println(input);
+        } while (!input.equals("quit"));
     }
 
     public static void A_03_12_breakAndContinue() {
+        Scanner scanner2 = new Scanner(System.in);
+        String input1 = "";
+        while (!input1.equals("quit")) {
+            System.out.println("Input (type quit to end - break and continue usage): ");
+            input1 = scanner2.nextLine().toLowerCase(Locale.ROOT);
+            if (input1.equals("pass"))
+                continue; // brings us back to the top of the loop or moves control to the beginning of the loop
+            if (input1.equals("quit"))
+                break;  // when java see the break statement = terminate loop
+            System.out.println(input1);
+        }
 
+        Scanner scanner3 = new Scanner(System.in);
+        String input2 = "";
+        while (true) { // edit from above code // pros use the true bc break will quit the program
+            System.out.println("Input (type quit to end - break and continue usage with always true ): ");
+            input2 = scanner2.nextLine().toLowerCase(Locale.ROOT);
+            if (input2.equals("pass"))
+                continue; // brings us back to the top of the loop or moves control to the beginning of the loop
+            if (input2.equals("quit"))
+                break;  // when java see the break statement = terminate loop - without break you will get infinite loop
+            System.out.println(input1);
+        }
     }
 
     public static void A_03_13_for_eachLoop() {
+        String[] fruits = {"Apple", "Mango", "Orange"};
+
+        for (String fruit : fruits) {  // fruit of 0, fruit of 1, fruit or 2 will now print in sequence.
+            System.out.println(fruit);  // limitations => forward only, we can not iterate for the last index to
+            // index 0.
+        }
 
     }
 
-    public static void A_03_14_mortgage_calculator() {
+    public static void A_03_14_mortgage_calculator_error_handling() {
+        final byte MONTHS_IN_YEAR = 12;
+        final byte PERCENT = 100;
+        int principal;
+        float monthlyInterest;
+        float annualInterest;
+        byte years;
+        int numberOfPayments;
+        double monthlyPayment;
 
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("Principal ($1k - $1M): ");
+            principal = scanner.nextInt();
+            if (principal < 1000 || principal > 1_000_000) {
+                System.out.println("Enter a number between 1,000 and 1,000,000");
+                continue;
+            } else {
+                break;
+            }
+        }
+
+        while (true) {
+            System.out.print("Annual Interest Rate: ");
+            annualInterest = scanner.nextFloat();
+            if (annualInterest <= 0 || annualInterest > 30) {
+                System.out.println("Enter a value greater than 0 and less than or equal to 30.");
+                continue;
+            } else {
+                monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
+                break;
+            }
+        }
+
+
+        while (true) {
+            System.out.print("Period in Years: ");
+            years = scanner.nextByte();
+            if (years <= 0 || years > 30) {
+                System.out.println("Enter a value between 1 and less than or equal to 30.");
+                continue;
+            } else {
+                numberOfPayments = years * MONTHS_IN_YEAR;
+                monthlyPayment = principal *
+                        ((monthlyInterest * (Math.pow(1 + monthlyInterest, numberOfPayments))) / ((Math.pow(1 + monthlyInterest
+                                , numberOfPayments) - 1)));
+                String mortgageFormatted = NumberFormat.getCurrencyInstance().format(monthlyPayment);
+                System.out.println("Mortgage: " + mortgageFormatted);
+                break;
+            }
+        }
     }
 
     public static void A_03_15_mortgage_calculator_solution() {
