@@ -1,5 +1,6 @@
 package com.careerdevs;
 
+import com.careerdevs.intro.CleanCoding;
 import com.careerdevs.intro.ControlFlow;
 import com.careerdevs.intro.DataTypes;
 import com.careerdevs.intro.GettingStarted;
@@ -40,6 +41,10 @@ public class Main {
        ControlFlow.A_03_12_breakAndContinue();
        ControlFlow.A_03_13_for_eachLoop();
        ControlFlow.A_03_14_mortgage_calculator_error_handling_mosh();
+
+
+       CleanCoding.A_4_05_extractingMethods();
+       CleanCoding.A_4_06_refactoringRepetitivePatterns();
 
     }
 

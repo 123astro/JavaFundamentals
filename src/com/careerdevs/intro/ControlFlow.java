@@ -258,7 +258,7 @@ public class ControlFlow {
         }
     }
 
-    public static void A_03_15_mortgage_calculator_solution() {
+    public static void A_03_15_mortgage_calculator_solution_mosh() {
         final byte MONTHS_IN_YEAR = 12;
         final byte PERCENT = 100;
 
