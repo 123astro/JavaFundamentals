@@ -43,8 +43,9 @@ public class Main {
        ControlFlow.A_03_14_mortgage_calculator_error_handling_mosh();
 
 
-       CleanCoding.A_4_05_extractingMethods();
-       CleanCoding.A_4_06_refactoringRepetitivePatterns();
+       //CleanCoding.A_4_05_extractingMethods();
+      // CleanCoding.A_4_06_refactoringRepetitivePatterns();
+       CleanCoding.A_4_07_projectPaymentSchedule();
 
     }
 

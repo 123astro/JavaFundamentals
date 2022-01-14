@@ -92,7 +92,22 @@ public class CleanCoding {
         double monthlyPayment = principal *
                 ((monthlyInterest * (Math.pow(1 + monthlyInterest, numberOfPayments))) / ((Math.pow(1 + monthlyInterest
                         , numberOfPayments) - 1)));
+        System.out.println("MORTGAGE");
+        System.out.println("--------");
+        System.out.println("Monthly payments: " + NumberFormat.getCurrencyInstance().format(monthlyPayment));
+        System.out.println("Payment Schedule\n" + "------------");
+        int numberOfTotalPayments = (years * 12);
+        int totalNumberOfPaymentsMade = numberOfTotalPayments;
+        for (int i = 0; i < numberOfTotalPayments; i++) {
+            double balance = principal
+                    * (Math.pow(1 + monthlyInterest, numberOfPayments)
+                            - Math.pow(1 + monthlyInterest, totalNumberOfPaymentsMade)) / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
+
+            totalNumberOfPaymentsMade--;
+            System.out.println(NumberFormat.getCurrencyInstance().format(balance));
+        }
         return monthlyPayment;
+
     }
 
 
@@ -123,6 +138,29 @@ public class CleanCoding {
 
 
     public static void A_4_07_projectPaymentSchedule() {
+        // add MORTGAGE
+        //     _______
+        // Monthly payments: $1,822.41
+        // Payment schedule
+        // ----------------
+        // The remaining balance after each monthly payment
+        //  With a 10years loan we would have 120 payment  => 12 months per year
+        //  Calculate the remaining balance B= L[(1 + C)^N - (1 + C)^P]/[(1 + C)^N - 1]
+        // L is principle, c is monthly interest, n is the number of payments, p is the
+        // number of payments made,
+        int principal = (int) readNumber("Principal: ", 1000, 1_000_000); // originally a double
+        float annualInterest = (float) readNumber("Annual Interest: ", 1, 30); // case to float bc it is a double
+        byte years = (byte) readNumber("Years: ", 1, 30); // double cast to byte
+
+        double mortgage = calculateMortgage(principal, annualInterest, years);
+
+        String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
+        System.out.println("Refactoring Repetitive Patterns - Mortgage: " + mortgageFormatted);
+
+    }
+
+    public static void schedule() {
+
 
     }
 
