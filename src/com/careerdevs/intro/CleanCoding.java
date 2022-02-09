@@ -4,6 +4,10 @@ import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class CleanCoding {
+
+    final static byte MONTHS_IN_YEAR = 12;
+    final static byte PERCENT = 100;
+
     public static void main(String[] args) {
         // good programmers write clean code that humans can understand !
         // make it clean and beautiful
@@ -51,7 +55,7 @@ public class CleanCoding {
         while (true) { // the scope of principle changed and needed to be put into the field of the method.
             System.out.print("Principal ($1k - $1M): ");
             principal = scanner.nextInt();
-            if (principal >= 1000 || principal <= 1_000_000) {
+            if (principal >= 1000 && principal <= 1_000_000) {
                 break;
             }
             System.out.println("Enter a number between 1,000 and 1,000,000");
@@ -60,7 +64,7 @@ public class CleanCoding {
         while (true) {
             System.out.print("Annual Interest Rate: ");
             annualInterest = scanner.nextFloat();
-            if (annualInterest >= 1 || annualInterest <= 30)
+            if (annualInterest >= 1 && annualInterest <= 30)
                 break;
             System.out.println("Enter a value greater than 0 and less than or equal to 30.");
         }
@@ -68,7 +72,7 @@ public class CleanCoding {
         while (true) {
             System.out.print("Period in Years: ");
             years = scanner.nextByte();
-            if (years >= 1 || years <= 30)
+            if (years >= 1 && years <= 30)
                 break;
             System.out.println("Enter a value between 1 and less than or equal to 30.");
         }
@@ -79,35 +83,39 @@ public class CleanCoding {
 
     }
 
+    public static double calculateBalance(int principal,
+                                          float annualInterest,
+                                          byte years,
+                                          short numberOfPaymentsMade) {
+
+        short numberOfPayments = (short) (years * MONTHS_IN_YEAR); // cast result to short
+        float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
+
+        double balance = principal
+                * (Math.pow(1 + monthlyInterest, numberOfPayments)
+                - Math.pow(1 + monthlyInterest, numberOfPaymentsMade) / (Math.pow(1 + monthlyInterest,
+                numberOfPayments) - 1));
+
+        return balance;
+
+    }
+
     public static double calculateMortgage(
             int principal,  // break the method down allowing you can see all the parameters in a clean fashion.
             float annualInterest,
             byte years) {
 
-        final byte MONTHS_IN_YEAR = 12;
-        final byte PERCENT = 100;
-
-        short numberOfPayments = (short) (years * MONTHS_IN_YEAR); // cast result to short
         float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
-        double monthlyPayment = principal *
-                ((monthlyInterest * (Math.pow(1 + monthlyInterest, numberOfPayments))) / ((Math.pow(1 + monthlyInterest
-                        , numberOfPayments) - 1)));
+        short numberOfPayments = (short) (years * MONTHS_IN_YEAR); // cast result to short
+
+        double mortgage = principal *
+                (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments) / (Math.pow(1 + monthlyInterest
+                        , numberOfPayments) - 1));
         System.out.println("MORTGAGE");
         System.out.println("--------");
-        System.out.println("Monthly payments: " + NumberFormat.getCurrencyInstance().format(monthlyPayment));
+        System.out.println("Monthly payments: " + NumberFormat.getCurrencyInstance().format(mortgage));
         System.out.println("Payment Schedule\n" + "------------");
-        int numberOfTotalPayments = (years * 12);
-        int totalNumberOfPaymentsMade = numberOfTotalPayments;
-        for (int i = 0; i < numberOfTotalPayments; i++) {
-            double balance = principal
-                    * (Math.pow(1 + monthlyInterest, numberOfPayments)
-                            - Math.pow(1 + monthlyInterest, totalNumberOfPaymentsMade)) / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
-
-            totalNumberOfPaymentsMade--;
-            System.out.println(NumberFormat.getCurrencyInstance().format(balance));
-        }
-        return monthlyPayment;
-
+        return mortgage;
     }
 
 
@@ -129,7 +137,7 @@ public class CleanCoding {
         while (true) {
             System.out.print(prompt);
             value = scanner.nextFloat();
-            if (value >= min || value <= max)
+            if (value >= min && value <= max)
                 break;
             System.out.println("Enter a value between " + min + " and " + max);
         }
@@ -153,9 +161,20 @@ public class CleanCoding {
         byte years = (byte) readNumber("Years: ", 1, 30); // double cast to byte
 
         double mortgage = calculateMortgage(principal, annualInterest, years);
-
         String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
-        System.out.println("Refactoring Repetitive Patterns - Mortgage: " + mortgageFormatted);
+        System.out.println();
+        System.out.println("MORTGAGE");
+        System.out.println("--------");
+        System.out.println("Monthly Payments: " + mortgageFormatted);
+
+        System.out.println();
+        System.out.println("PAYMENT SCHEDULE");
+        System.out.println("----------------");
+
+        for (short month = 1; month <= years * MONTHS_IN_YEAR; month++){
+            double balance = calculateBalance(principal,annualInterest,years,month);
+            System.out.println(NumberFormat.getCurrencyInstance().format(balance));
+        }
 
     }
 
