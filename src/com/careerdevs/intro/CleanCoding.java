@@ -92,8 +92,8 @@ public class CleanCoding {
         float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
 
         double balance = principal
-                * (Math.pow(1 + monthlyInterest, numberOfPayments)
-                - Math.pow(1 + monthlyInterest, numberOfPaymentsMade) / (Math.pow(1 + monthlyInterest,
+                * ((Math.pow(1 + monthlyInterest, numberOfPayments)
+                - Math.pow(1 + monthlyInterest, numberOfPaymentsMade)) / (Math.pow(1 + monthlyInterest,
                 numberOfPayments) - 1));
 
         return balance;
@@ -160,21 +160,8 @@ public class CleanCoding {
         float annualInterest = (float) readNumber("Annual Interest: ", 1, 30); // case to float bc it is a double
         byte years = (byte) readNumber("Years: ", 1, 30); // double cast to byte
 
-        double mortgage = calculateMortgage(principal, annualInterest, years);
-        String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
-        System.out.println();
-        System.out.println("MORTGAGE");
-        System.out.println("--------");
-        System.out.println("Monthly Payments: " + mortgageFormatted);
-
-        System.out.println();
-        System.out.println("PAYMENT SCHEDULE");
-        System.out.println("----------------");
-
-        for (short month = 1; month <= years * MONTHS_IN_YEAR; month++){
-            double balance = calculateBalance(principal,annualInterest,years,month);
-            System.out.println(NumberFormat.getCurrencyInstance().format(balance));
-        }
+        printMortage(principal, annualInterest, years);
+        printPaymentSchedule(principal, annualInterest, years);
 
     }
 
@@ -184,12 +171,46 @@ public class CleanCoding {
     }
 
     public static void A_4_08_solution() {
+        int principal = (int) readNumber("Principal: ", 1000, 1_000_000); // originally a double
+        float annualInterest = (float) readNumber("Annual Interest: ", 1, 30); // case to float bc it is a double
+        byte years = (byte) readNumber("Years: ", 1, 30); // double cast to byte
+
+        printMortage(principal, annualInterest, years);
+        printPaymentSchedule(principal, annualInterest, years);
 
     }
 
-    public static void A_4_09_refactoringTheCode() {
+    public static void A_4_09_refactoringTheCode() {  // created methods by highlighting the code you want to turn
+        // into a method and selecting refactoring. From refactoring go to inline method.
+        int principal = (int) readNumber("Principal: ", 1000, 1_000_000); // originally a double
+        float annualInterest = (float) readNumber("Annual Interest: ", 1, 30); // case to float bc it is a double
+        byte years = (byte) readNumber("Years: ", 1, 30); // double cast to byte
+
+        printMortage(principal, annualInterest, years);
+        printPaymentSchedule(principal, annualInterest, years);
 
     }
+
+    private static void printPaymentSchedule(int principal, float annualInterest, byte years) {
+        System.out.println();
+        System.out.println("PAYMENT SCHEDULE");
+        System.out.println("----------------");
+        for (short month = 1; month <= years * MONTHS_IN_YEAR; month++) {
+            double balance = calculateBalance(principal, annualInterest, years, month);
+            System.out.println(NumberFormat.getCurrencyInstance().format(balance));
+        }
+    }
+
+    private static void printMortage(int principal, float annualInterest, byte years) {
+        double mortgage = calculateMortgage(principal, annualInterest, years);
+        String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
+        System.out.println();
+        System.out.println("MORTGAGE");
+        System.out.println("--------");
+        System.out.println("Monthly Payments: " + mortgageFormatted);
+    }
+
+
 
     public static void A_4_10_summary() {
 
