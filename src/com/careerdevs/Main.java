@@ -1,9 +1,6 @@
 package com.careerdevs;
 
-import com.careerdevs.intro.CleanCoding;
-import com.careerdevs.intro.ControlFlow;
-import com.careerdevs.intro.DataTypes;
-import com.careerdevs.intro.GettingStarted;
+import com.careerdevs.intro.*;
 
 import java.util.Date;
 
@@ -46,6 +43,7 @@ public class Main {
        //CleanCoding.A_4_05_extractingMethods();
       // CleanCoding.A_4_06_refactoringRepetitivePatterns();
        CleanCoding.A_4_07_projectPaymentSchedule();
+        Debugging.A_05_04_debuggingJavaApps();
 
     }
 
