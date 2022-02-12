@@ -5,18 +5,27 @@ public class Classes {
 
 
     public static void main(String[] args) throws IllegalAccessException {
-        var employee = new Employee(); //coupling
-        employee.setBaseSalary(50_000);//coupling point
-        employee.setHourlyRate(20); //coupling point
-        int wage = employee.calculateWage(100); //coupling point
+//        var employee = new Employee(); //coupling
+//        employee.setBaseSalary(50_000);//coupling point
+//        employee.setHourlyRate(20); //coupling point
+//        int wage = employee.calculateWage(100); //coupling point
+//        System.out.println(wage);
+
+//        var browser = new Browser();
+//       browser.navigate("127.0.0.1");
+
+        var employee = new Employee(50_000, 20);
+        var employee2 = new Employee(50_000);
+        int wage   = employee.calculateWage(10);
         System.out.println(wage);
+
     }
 
 
     public static void B_02_01() {
         /*
         classes
-        principles encap and abstration constructions getters setters
+        principles encapsulate and abstraction constructions getters setters
         method overloading
          */
     }
@@ -136,6 +145,28 @@ public class Classes {
        the level of dependency between classes
        use your phone => you are coupled
        You want to reduce the coupling
+         */
+    }
+
+    public static void B_02_12constructors(){
+        /*
+        create a constructor for employee
+         */
+    }
+
+    public static void B_02_13methodOverloading(){
+        /*
+        create a loading by adding constructors
+           overloaded calculate Wages
+           do not over use it and the example here is great practice bc it doesn't buy you much.
+           overload methods parameter should be really different.
+         */
+    }
+
+
+    public static void B_02_14constructorsOverloading (){
+        /*
+        create constructor overloading
 
          */
     }
