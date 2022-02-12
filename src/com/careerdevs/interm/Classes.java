@@ -5,10 +5,10 @@ public class Classes {
 
 
     public static void main(String[] args) throws IllegalAccessException {
-        var employee = new Employee();
-        employee.setBaseSalary(50_000);
-        employee.setHourlyRate(20);
-        int wage = employee.calculateWage(100);
+        var employee = new Employee(); //coupling
+        employee.setBaseSalary(50_000);//coupling point
+        employee.setHourlyRate(20); //coupling point
+        int wage = employee.calculateWage(100); //coupling point
         System.out.println(wage);
     }
 
@@ -113,9 +113,34 @@ public class Classes {
     public static void B_02_09abstraction(){
         /*
         created abstraction examples
-        Reduce the complexity by hiding unnecessary details
+        ****Reduce the complexity by hiding unnecessary details*****
+        hide the implementation detail of the class and treat it like a black box.
+        We don't care on what's inside. A simple interface
          */
     }
+
+    public static void B_02_10coupling(){
+        /*
+      coupling
+       the level of dependency between classes
+       use your phone => you are coupled
+       You want to reduce the coupling
+
+         */
+    }
+
+
+    public static void B_02_11reduceCoupling(){
+        /*
+      coupling
+       the level of dependency between classes
+       use your phone => you are coupled
+       You want to reduce the coupling
+
+         */
+    }
+
+
 
 
 }
