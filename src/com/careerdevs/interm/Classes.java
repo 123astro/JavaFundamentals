@@ -104,9 +104,16 @@ public class Classes {
          */
     }
 
-    public static void B_02_08gettes_setters(){
+    public static void B_02_08gettersSetters(){
         /*
         created getters and setters in Employee class.
+         */
+    }
+
+    public static void B_02_09abstraction(){
+        /*
+        created abstraction examples
+        Reduce the complexity by hiding unnecessary details
          */
     }
 
