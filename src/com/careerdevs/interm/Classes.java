@@ -11,6 +11,7 @@ public class Classes {
 //        int wage = employee.calculateWage(100); //coupling point
 //        System.out.println(wage);
 
+<<<<<<< HEAD
 //        var browser = new Browser();
 //       browser.navigate("127.0.0.1");
 
@@ -18,6 +19,10 @@ public class Classes {
         var employee2 = new Employee(50_000);
         int wage   = employee.calculateWage(10);
         System.out.println(wage);
+=======
+        var browser = new Browser();
+       browser.navigate("127.0.0.1");
+>>>>>>> 9facd2f00eba7e9ab213a22b2dadcf8a0b9506e6
 
     }
 
