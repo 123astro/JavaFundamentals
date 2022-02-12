@@ -99,7 +99,16 @@ public class Classes {
     }
 
     public static void B_02_07encapsulation(){
-
+        /*
+        created a new class called employee
+         */
     }
+
+    public static void B_02_08gettes_setters(){
+        /*
+        created getters and setters in Employee class.
+         */
+    }
+
 
 }

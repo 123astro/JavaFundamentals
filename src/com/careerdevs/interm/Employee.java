@@ -4,9 +4,8 @@ public class Employee {
     private int baseSalary;
     private int hourlyRate;
 
-    public int calculateWage( int extraHours){  //calculate wage has less parameters now => encapsulate the value in a
-        // single
-        // object.
+    public int calculateWage( int extraHours){  //calculateWage has fewer parameters now => encapsulate the value in a
+        // single object.
         return baseSalary + (getHourlyRate() * extraHours);
     }
 
