@@ -5,11 +5,15 @@ public class Classes {
 
 
     public static void main(String[] args) throws IllegalAccessException {
-        var employee = new Employee(); //coupling
-        employee.setBaseSalary(50_000);//coupling point
-        employee.setHourlyRate(20); //coupling point
-        int wage = employee.calculateWage(100); //coupling point
-        System.out.println(wage);
+//        var employee = new Employee(); //coupling
+//        employee.setBaseSalary(50_000);//coupling point
+//        employee.setHourlyRate(20); //coupling point
+//        int wage = employee.calculateWage(100); //coupling point
+//        System.out.println(wage);
+
+        var browser = new Browser();
+       browser.navigate("127.0.0.1");
+
     }
 
 
