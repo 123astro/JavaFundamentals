@@ -11,18 +11,18 @@ public class Classes {
 //        int wage = employee.calculateWage(100); //coupling point
 //        System.out.println(wage);
 
-<<<<<<< HEAD
 //        var browser = new Browser();
 //       browser.navigate("127.0.0.1");
 
         var employee = new Employee(50_000, 20);
-        var employee2 = new Employee(50_000);
+        //var employee2 = new Employee(50_000);
+        System.out.println(Employee.numberOfEmployees); //static field access.
         int wage   = employee.calculateWage(10);
         System.out.println(wage);
-=======
+
         var browser = new Browser();
        browser.navigate("127.0.0.1");
->>>>>>> 9facd2f00eba7e9ab213a22b2dadcf8a0b9506e6
+
 
     }
 
@@ -174,6 +174,53 @@ public class Classes {
         create constructor overloading
 
 
+         */
+    }
+
+    public static void B_02_15staticMember(){
+        /** *********************
+        create Static members and instance members
+            static fields and methods
+            OOP can have two types of members => instance members and static members
+            instance members belong to object or instances => employee class is an example. the fields belong to each
+             instance of the employee class.
+
+             use a static fields when sharing across all objects = independent.
+             static method scope is it can only see other static methods.
+
+             *********the main method is always static because it doesn't have to create a new object from java run
+             time.
+
+         */
+    }
+
+    public static void B_02_16_testing(){
+        /*
+
+Java program to illustrate
+loose coupling concept
+
+public interface Topic
+{
+    void understand();
+}
+class Topic1 implements Topic {
+public void understand()
+    {
+        System.out.println("Got it");
+    }
+} class Topic2 implements Topic {
+public void understand()
+    {
+        System.out.println("understand");
+    }
+} public class Subject {
+public static void main(String[] args)
+    {
+        Topic t = new Topic1();
+        t.understand();
+    }
+}
          */
     }
 
